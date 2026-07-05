@@ -1,0 +1,101 @@
+aid: antech-diagnostics
+name: Antech Diagnostics
+review:
+  question: Does Antech expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-05'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. Antech does not publish any public API - and
+    certainly no server-push transport (WebSocket or SSE). Antech's programmatic
+    surface is a partner-gated laboratory integration used by veterinary practice
+    information management systems (PIMS). The exchange is order/result oriented:
+    the PIMS submits a requisition and Antech returns results back into the patient
+    record. There is no documented, publicly reachable realtime endpoint on Antech's
+    side to model.
+findings:
+  summary: |
+    Antech Diagnostics does not publish a documented public WebSocket API - nor a
+    public, self-serve developer portal or API reference of any kind. Antech is
+    North America's largest veterinary reference laboratory network and part of Mars
+    Petcare (Mars Veterinary Health), which acquired Antech through its 2017
+    purchase of VCA. The only programmatic surface is a partner-gated laboratory
+    integration, commonly configured inside PIMS products as "Antech V3." It lets
+    veterinary software submit lab requisitions to Antech and receive completed
+    results back into the patient's medical record. Access requires an Antech
+    account and an integration/business relationship, authenticated with an Account
+    Number, Username, Password, and Clinic ID. No public endpoints, base URL,
+    protocol details, or WebSocket surface are documented.
+  accessModel: |
+    Partner-gated / not self-serve. There is no public documentation site listing
+    endpoints, authentication flows, or schemas. Practices enable the integration
+    from within their PIMS (Vetspire, Cornerstone, DaySmart Vet, NaVetor, ezyVet,
+    NectarVet, and others) by entering their Antech Account Number, Username,
+    Password, and Clinic ID. The Clinic ID is found in the Antech portal under
+    Account Settings > Clinic Profile > Clinic ID. Antech / Mars owns the API
+    surface; PIMS vendors implement against it under partner agreements.
+  ownership: |
+    Antech Diagnostics is part of Mars Petcare, operating under Mars Veterinary
+    Health. Mars acquired Antech via its ~$9.1B acquisition of VCA, Inc.
+    (announced Jan 2017, completed Sep 2017), where Antech was VCA's reference
+    laboratory subsidiary. Mars has since expanded the diagnostics group with
+    Heska (2023), SYNLAB Vet (2023), Cerba Vet / ANTAGENE (2024), and VetZ.
+  endpointsModeled: true
+  endpointsModeledNote: |
+    The APIs listed in apis.yml (Lab Orders, Lab Results, Patients, Reference Data /
+    Test Catalog) are LOGICAL groupings modeled from documented PIMS integration
+    behavior, not from an Antech-published specification. No concrete endpoint
+    paths, base URL, or OpenAPI document were fabricated because none are publicly
+    documented. No openapi/, plans/, rate-limits/, finops/, or collections/
+    artifacts were created for this reason.
+  pricing: |
+    No public, self-serve pricing. Diagnostic testing is billed per test/panel via
+    the clinic's Antech account; integration access is arranged through Antech
+    business development / partner channels (contact-sales). No published plans or
+    rate-limit tiers exist to catalog.
+  transports:
+    - protocol: Partner Lab Integration
+      scheme: https
+      documented: false
+      note: Antech V3 order/result integration consumed by PIMS vendors. Auth via Account Number, Username, Password, Clinic ID. No public endpoint or schema published.
+    - protocol: REST
+      scheme: https
+      documented: false
+      note: Presumed HTTPS request/response beneath the PIMS integration, but Antech publishes no public REST reference. Not independently verified.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented anywhere in Antech's public materials as of the review date.
+  endpointsConfirmedRest: []
+sources:
+  - url: https://www.antechdiagnostics.com/
+    type: Website
+    note: Antech Diagnostics corporate site; reference lab, in-house, imaging, HealthTracks.
+  - url: https://www.antechdiagnostics.com/reference-lab/healthtracks/
+    type: Documentation
+    note: HealthTracks diagnostics platform; results surface and PIMS integration context.
+  - url: https://online.antechdiagnostics.com/
+    type: Portal
+    note: Antech online portal where submitted orders appear as In Progress.
+  - url: https://manual.vetspire.com/vetspire-user-manual/ok/Commercial/antech
+    type: Documentation
+    note: PIMS integration setup - "Antech V3", Account Number, Username, Password, Clinic ID.
+  - url: https://cornerstonehelphub.com/docs/antech-lab-integration-requests-and-results/
+    type: Documentation
+    note: Requests submitted electronically; results returned into the PIMS record. No API schema exposed.
+  - url: https://pattvet.custhelp.com/app/answers/detail/a_id/43904/~/navetor--antech-(reference-labs)-integration
+    type: Documentation
+    note: NaVetor-Antech reference lab integration; credentials and Clinic ID location.
+  - url: https://www.antechdiagnostics.com/2024/07/02/mars-completes-acquisition-of-cerba-healthcare-groups-stake-in-french-veterinary-diagnostics-businesses-cerba-vet-and-antagene/
+    type: PressRelease
+    note: Confirms Antech/Mars Petcare ownership and ongoing diagnostics consolidation.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No public WebSocket surface exists, and Antech publishes no public API reference
+    at all. The only programmatic surface is a partner-gated PIMS lab integration
+    ("Antech V3") for submitting requisitions and receiving results. The apis.yml
+    documents this honestly with modeled logical APIs (endpointsModeled: true) and
+    no fabricated endpoints, OpenAPI, plans, or rate limits.

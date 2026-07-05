@@ -1,0 +1,110 @@
+aid: antech-diagnostics
+url: https://raw.githubusercontent.com/api-evangelist/antech-diagnostics/refs/heads/main/apis.yml
+name: Antech Diagnostics
+kind: company
+description: Antech Diagnostics operates North America's largest veterinary reference
+  laboratory network, plus in-house diagnostic instruments, imaging, and the
+  HealthTracks diagnostics platform. Antech is part of Mars Petcare (Mars Veterinary
+  Health), acquired via Mars' 2017 purchase of VCA. Antech's programmatic surface is
+  a partner-gated laboratory integration API - commonly configured in practice
+  information management systems (PIMS) as "Antech V3" - that lets veterinary
+  software submit lab requisitions to Antech and receive results back into the
+  patient's medical record. There is no public, self-serve developer portal or
+  published API reference; access requires an Antech account and a business /
+  integration partner relationship, authenticated with an Account Number, Username,
+  Password, and Clinic ID. The logical APIs below are modeled from documented PIMS
+  integration behavior (Vetspire, Cornerstone, DaySmart Vet, NaVetor, ezyVet,
+  NectarVet), not from an Antech-published specification.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Veterinary
+- Diagnostics
+- Laboratory
+- Reference Lab
+- Lab Results
+- Animal Health
+- PIMS Integration
+- Mars Petcare
+created: '2026-07-05'
+modified: '2026-07-05'
+specificationVersion: '0.19'
+apis:
+- aid: antech-diagnostics:antech-diagnostics-lab-orders-api
+  name: Antech Lab Orders API
+  tags:
+  - Lab Orders
+  - Requisitions
+  - Reference Lab
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.antechdiagnostics.com/reference-lab/healthtracks/
+  properties:
+  - url: https://manual.vetspire.com/vetspire-user-manual/ok/Commercial/antech
+    type: Documentation
+  description: Modeled partner-gated surface for submitting laboratory requisitions
+    (test orders) electronically to Antech's reference lab from a veterinary PIMS.
+    Carries the ordering clinic, patient, and requested test codes/panels. Orders
+    appear as In Progress in the Antech online portal once submitted. Endpoints are
+    modeled from documented PIMS integration behavior, not an Antech-published API
+    reference.
+- aid: antech-diagnostics:antech-diagnostics-lab-results-api
+  name: Antech Lab Results API
+  tags:
+  - Lab Results
+  - Diagnostics
+  - HealthTracks
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.antechdiagnostics.com/reference-lab/healthtracks/
+  properties:
+  - url: https://cornerstonehelphub.com/docs/antech-lab-integration-requests-and-results/
+    type: Documentation
+  description: Modeled partner-gated surface for delivering completed diagnostic
+    results back to the ordering PIMS, where they land in the patient's medical
+    record. Results include analyte values, reference ranges, and, for microbiology,
+    MIC and S/I/R interpretations. Antech pushes results automatically once samples
+    are processed. Endpoints are modeled, not sourced from an Antech-published spec.
+- aid: antech-diagnostics:antech-diagnostics-patients-api
+  name: Antech Patients API
+  tags:
+  - Patients
+  - Clients
+  - Demographics
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.antechdiagnostics.com/reference-lab/healthtracks/
+  properties:
+  - url: https://cornerstonehelphub.com/docs/antech-lab-integration-requests-and-results/
+    type: Documentation
+  description: Modeled patient and client demographic exchange that accompanies a
+    requisition - species, breed, sex, and owner details are linked from the PIMS so
+    results map back to the correct animal record. Not an independently documented
+    Antech endpoint; modeled from integration data requirements.
+- aid: antech-diagnostics:antech-diagnostics-reference-data-api
+  name: Antech Reference Data & Test Catalog API
+  tags:
+  - Reference Data
+  - Test Catalog
+  - Codes
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.antechdiagnostics.com/reference-lab/
+  properties:
+  - url: https://www.antechdiagnostics.com/reference-lab/
+    type: Documentation
+  description: Modeled reference surface exposing Antech's test catalog - test codes,
+    panels, and species/breed reference data - so a PIMS can map its inventory items
+    to the correct Antech tests. Modeled from documented test-to-invoice-item mapping
+    behavior, not a published Antech catalog API.
+common:
+- type: Website
+  url: https://www.antechdiagnostics.com/
+- type: LinkedIn
+  url: https://www.linkedin.com/company/antech-diagnostics
+- type: Portal
+  url: https://online.antechdiagnostics.com/
+- type: Documentation
+  url: https://www.antechdiagnostics.com/reference-lab/healthtracks/
+- type: Support
+  url: https://antechonlinesupport.freshdesk.com/support/solutions
+- type: Parent
+  url: https://www.mars.com/made-by-mars/petcare
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
