@@ -93,6 +93,8 @@ apis:
     to the correct Antech tests. Modeled from documented test-to-invoice-item mapping
     behavior, not a published Antech catalog API.
 common:
+- type: DomainSecurity
+  url: security/antech-diagnostics-domain-security.yml
 - type: Website
   url: https://www.antechdiagnostics.com/
 - type: LinkedIn
