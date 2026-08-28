@@ -15,6 +15,17 @@ description: Antech Diagnostics operates North America's largest veterinary refe
   Password, and Clinic ID. The logical APIs below are modeled from documented PIMS
   integration behavior (Vetspire, Cornerstone, DaySmart Vet, NaVetor, ezyVet,
   NectarVet), not from an Antech-published specification.
+deliveryModel:
+  model: unknown
+  open_source: false
+  commercial: false
+  callable_host: false
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - none
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: unknown
