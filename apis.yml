@@ -52,6 +52,7 @@ modified: '2026-07-05'
 specificationVersion: '0.23'
 apis:
 - aid: antech-diagnostics:antech-diagnostics-lab-orders-api
+  endpointsModeled: true
   name: Antech Lab Orders API
   tags:
   - Lab Orders
@@ -69,6 +70,7 @@ apis:
     modeled from documented PIMS integration behavior, not an Antech-published API
     reference.
 - aid: antech-diagnostics:antech-diagnostics-lab-results-api
+  endpointsModeled: true
   name: Antech Lab Results API
   tags:
   - Lab Results
@@ -85,6 +87,7 @@ apis:
     MIC and S/I/R interpretations. Antech pushes results automatically once samples
     are processed. Endpoints are modeled, not sourced from an Antech-published spec.
 - aid: antech-diagnostics:antech-diagnostics-patients-api
+  endpointsModeled: true
   name: Antech Patients API
   tags:
   - Patients
@@ -100,6 +103,7 @@ apis:
     results map back to the correct animal record. Not an independently documented
     Antech endpoint; modeled from integration data requirements.
 - aid: antech-diagnostics:antech-diagnostics-reference-data-api
+  endpointsModeled: true
   name: Antech Reference Data & Test Catalog API
   tags:
   - Reference Data
