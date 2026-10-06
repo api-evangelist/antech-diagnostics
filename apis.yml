@@ -48,7 +48,7 @@ tags:
 - PIMS Integration
 - Mars Petcare
 created: '2026-07-05'
-modified: '2026-07-05'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 apis:
 - aid: antech-diagnostics:antech-diagnostics-lab-orders-api
@@ -119,6 +119,10 @@ apis:
     to the correct Antech tests. Modeled from documented test-to-invoice-item mapping
     behavior, not a published Antech catalog API.
 common:
+- url: https://www.antechdiagnostics.com/category/news/
+  type: Blog
+- url: https://www.antechdiagnostics.com/feed/
+  type: BlogRSS
 - type: DomainSecurity
   url: security/antech-diagnostics-domain-security.yml
 - type: Website
