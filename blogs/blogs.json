@@ -1,0 +1,21 @@
+{
+  "repo": "antech-diagnostics",
+  "feeds": [
+    {
+      "source": "https://www.antechdiagnostics.com/category/news/",
+      "feed_url": "https://www.antechdiagnostics.com/category/news/feed/",
+      "title": "",
+      "saved": 0,
+      "method": "discovered"
+    },
+    {
+      "source": "https://www.antechdiagnostics.com/feed/",
+      "feed_url": "https://www.antechdiagnostics.com/feed/",
+      "title": "",
+      "saved": 1,
+      "method": "feed"
+    }
+  ],
+  "post_count": 1,
+  "fetched": "2026-10-10T13:15:00Z"
+}
