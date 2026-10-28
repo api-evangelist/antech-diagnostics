@@ -1,4 +1,4 @@
-# Antech Diagnostics (antech-diagnostics)
+# Antech Diagnostics
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,77 +64,89 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Antech Diagnostics operates North America's largest veterinary reference laboratory network, alongside in-house diagnostic instruments and consumables, veterinary imaging, expert medical consulting, and the HealthTracks diagnostics platform. Antech is part of **Mars Petcare** (Mars Veterinary Health), which acquired Antech through Mars' 2017 purchase of VCA, Inc., where Antech was VCA's reference laboratory subsidiary. Mars has since expanded the diagnostics group with Heska, SYNLAB Vet, Cerba Vet / ANTAGENE, and VetZ.
+Antech Diagnostics operates North America's largest veterinary reference laboratory network, plus in-house diagnostic instruments, imaging, and the HealthTracks diagnostics platform. Antech is part of Mars Petcare (Mars Veterinary Health), acquired via Mars' 2017 purchase of VCA. Antech's programmatic surface is a partner-gated laboratory integration API - commonly configured in practice information management systems (PIMS) as "Antech V3" - that lets veterinary software submit lab requisitions to Antech and receive results back into the patient's medical record. There is no public, self-serve developer portal or published API reference; access requires an Antech account and a business / integration partner relationship, authenticated with an Account Number, Username, Password, and Clinic ID. The logical APIs below are modeled from documented PIMS integration behavior (Vetspire, Cornerstone, DaySmart Vet, NaVetor, ezyVet, NectarVet), not from an Antech-published specification.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/antech-diagnostics/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/antech-diagnostics/refs/heads/main/apis.yml)
+**Areas:** Veterinary · Diagnostics · Laboratory · Reference Lab · Lab Results · Animal Health · PIMS Integration · Mars Petcare
 
-## Access Model — Partner-Gated, No Public Developer Portal
+## Antech Diagnostics on APIs.io
 
-Antech does **not** publish a public, self-serve developer portal or API reference. Its programmatic surface is a **partner-gated laboratory integration** — commonly configured inside veterinary practice information management systems (PIMS) as **"Antech V3"** — that lets veterinary software submit lab requisitions to Antech and receive results back into the patient's medical record.
+Everything profiled for Antech Diagnostics is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/antech-diagnostics/](https://apis.io/providers/antech-diagnostics/)** — or go straight to one of the APIs or properties below.
 
-- **Who uses it:** PIMS vendors such as Vetspire, Cornerstone, DaySmart Vet, NaVetor, ezyVet, and NectarVet integrate against it under partner agreements.
-- **Authentication:** A practice enables the integration inside its PIMS using an Antech **Account Number**, **Username**, **Password**, and **Clinic ID** (found in the Antech portal under Account Settings > Clinic Profile > Clinic ID).
-- **Flow:** The PIMS submits a requisition; the order shows as *In Progress* in the Antech online portal; once samples are processed, results (including MIC and S/I/R interpretations for microbiology) are pushed back automatically.
-- **No published endpoints:** Antech discloses no base URL, endpoint paths, protocol details, schemas, or OpenAPI document publicly. Access is arranged through Antech business development / partner channels.
+### APIs (4)
 
-Because of this, the APIs below are **logical groupings modeled from documented PIMS integration behavior**, not from an Antech-published specification. No `openapi/`, `plans/`, `rate-limits/`, `finops/`, or `collections/` artifacts were fabricated.
+- [Antech Lab Orders API](https://apis.io/apis/antech-diagnostics/antech-diagnostics-lab-orders-api/) — Modeled partner-gated surface for submitting laboratory requisitions (test orders) electronically to Antech's reference lab from a veterinary PIMS. Carries…
+- [Antech Lab Results API](https://apis.io/apis/antech-diagnostics/antech-diagnostics-lab-results-api/) — Modeled partner-gated surface for delivering completed diagnostic results back to the ordering PIMS, where they land in the patient's medical record.…
+- [Antech Patients API](https://apis.io/apis/antech-diagnostics/antech-diagnostics-patients-api/) — Modeled patient and client demographic exchange that accompanies a requisition - species, breed, sex, and owner details are linked from the PIMS so results…
+- [Antech Reference Data & Test Catalog API](https://apis.io/apis/antech-diagnostics/antech-diagnostics-reference-data-api/) — Modeled reference surface exposing Antech's test catalog - test codes, panels, and species/breed reference data - so a PIMS can map its inventory items to…
 
-## Tags
+### Published properties
 
-- Veterinary
-- Diagnostics
-- Laboratory
-- Reference Lab
-- Lab Results
-- Animal Health
-- PIMS Integration
-- Mars Petcare
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## Timestamps
+#### Security (1)
 
-- **Created:** 2026-07-05
-- **Modified:** 2026-07-05
+Authentication, trust centre, and vulnerability disclosure.
 
-## APIs (Modeled)
+- [Antech Diagnostics Domain Security](https://apis.io/security/antech-diagnostics/antech-diagnostics-domain-security/)
 
-### Antech Lab Orders API
+## Where to find this API
 
-Modeled partner-gated surface for submitting laboratory requisitions (test orders) electronically to Antech's reference lab from a veterinary PIMS. Carries the ordering clinic, patient, and requested test codes/panels.
-
-- **Human URL:** [https://www.antechdiagnostics.com/reference-lab/healthtracks/](https://www.antechdiagnostics.com/reference-lab/healthtracks/)
-
-### Antech Lab Results API
-
-Modeled partner-gated surface for delivering completed diagnostic results back to the ordering PIMS, where they land in the patient's medical record — analyte values, reference ranges, and microbiology MIC / S/I/R interpretations.
-
-- **Human URL:** [https://www.antechdiagnostics.com/reference-lab/healthtracks/](https://www.antechdiagnostics.com/reference-lab/healthtracks/)
-
-### Antech Patients API
-
-Modeled patient and client demographic exchange that accompanies a requisition — species, breed, sex, and owner details linked from the PIMS so results map back to the correct animal record.
-
-- **Human URL:** [https://www.antechdiagnostics.com/reference-lab/healthtracks/](https://www.antechdiagnostics.com/reference-lab/healthtracks/)
-
-### Antech Reference Data & Test Catalog API
-
-Modeled reference surface exposing Antech's test catalog — test codes, panels, and species/breed reference data — so a PIMS can map its inventory items to the correct Antech tests.
-
-- **Human URL:** [https://www.antechdiagnostics.com/reference-lab/](https://www.antechdiagnostics.com/reference-lab/)
-
-## Common Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.antechdiagnostics.com/)
-- [LinkedIn](https://www.linkedin.com/company/antech-diagnostics)
-- [Portal](https://online.antechdiagnostics.com/)
 - [Documentation](https://www.antechdiagnostics.com/reference-lab/healthtracks/)
 - [Support](https://antechonlinesupport.freshdesk.com/support/solutions)
-- [Parent — Mars Petcare](https://www.mars.com/made-by-mars/petcare)
+- [Blog](https://www.antechdiagnostics.com/category/news/)
 
-## Pricing
+## API Evangelist rating
 
-No public, self-serve pricing. Diagnostic testing is billed per test/panel via the clinic's Antech account; integration access is arranged through Antech business development / partner channels (contact-sales). No published plans or rate-limit tiers exist to catalog.
+**Kin Score 10.4** — minimal · rubric 0.24.0 · scored 2026-10-17
 
-## Maintainers
+| Facet | Score |
+|---|---|
+| Discoverability | 62.5 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 26.2 |
+| Access clarity | 0.0 |
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Agent readiness 0.0** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 4.7** — Health
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/antech-diagnostics/](https://apis.io/providers/antech-diagnostics/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Antech Diagnostics: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/antech-diagnostics/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
